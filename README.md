@@ -1,5 +1,16 @@
 # SHASHI (SHApe SHIfter)
 
+Made with <3 by [@olistik](https://olisti.co)
+
+## License
+
+GNU General Public License (GPL) version 3
+
+- [gnu.org](https://www.gnu.org/licenses/gpl-3.0.txt)
+- [repository copy](gpl-3.0.txt)
+
+## Usage
+
 ```bash
 shashi
   --file "FILE" # defaults to ./shashi__db.json
