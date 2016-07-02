@@ -1,0 +1,49 @@
+{
+  "groups": {
+    "default": {
+
+      "services": {
+        "facebook": {
+          "url": "https://facebook.com",
+          "accounts": [
+            {
+              "e-mail": "ciccio@pasticcio.it",
+              "password": "foo-bar"
+            }
+          ]
+        },
+        "google": {
+          "accounts": [
+            {
+              "e-mail": "ciccio.pasticcio@gmail.com",
+              "password": "spam-egg",
+              "details": {
+                "url": "https://google.com"
+              }
+            },
+            {
+              "email": "ciccio@mydomain.com",
+              "password": "asd-foo",
+              "details": {
+                "url": "https://admin.google.com/AdminHome",
+                "PIN": "1234",
+                "TFA backup codes": [
+                  "123",
+                  "123",
+                  "123",
+                  "123",
+                  "123",
+                  "123",
+                  "123",
+                  "123",
+                  "123"
+                ]
+              }
+            }
+          ]
+        }
+      }
+
+    }
+  }
+}
