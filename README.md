@@ -22,6 +22,7 @@ gem install shashi
 ```bash
 shashi
   --file "FILE" # defaults to ./shashi__db.json
+  --setup # creates the storage file with an empty set
   --path "List<PATH>[separator:.]" # applies a partial matching but raise an error in case of more than one match
     # --group "NAME" # defaults to `default`
     # --create-group "NAME"
@@ -36,7 +37,6 @@ shashi
       --deep # shows the values associated with keys AND the content of sets/lists
     --delete-set "NAME" # asks for confirmation if the set is not empty
       --force # doesn't ask for confirmation if the set is not empty
-
 
     --create-list "NAME"
     --index "INDEX" # default the size of the queue

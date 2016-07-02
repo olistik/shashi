@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require "shashi"
+
+Shashi::CLI.perform(options: ARGV)
