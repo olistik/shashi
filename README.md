@@ -23,10 +23,10 @@ gem install shashi
 shashi
   --file "FILE" # defaults to ./shashi__db.json
   --path "List<PATH>[separator:.]" # applies a partial matching but raise an error in case of more than one match
-    --group "NAME" # defaults to `default`
-    --create-group "NAME"
-    --delete-group "NAME" # asks for confirmation if the group is not empty
-      --force # doesn't ask for confirmation if the group is not empty
+    # --group "NAME" # defaults to `default`
+    # --create-group "NAME"
+    # --delete-group "NAME" # asks for confirmation if the group is not empty
+    #   --force # doesn't ask for confirmation if the group is not empty
 
     --create-set "NAME"
     --set "KEY:VALUE"
