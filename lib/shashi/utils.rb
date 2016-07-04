@@ -15,5 +15,13 @@ module Shashi
       File.write(file, JSON.pretty_generate(data))
     end
 
+    def self.data_walker(data:, path:)
+      current = data
+      path.each do |key|
+        current = current[key]
+      end
+      current
+    end
+
   end
 end

@@ -30,6 +30,11 @@ module Shashi
           arguments[:set_name] = name
         end
 
+        opts.on("--set KEY:VALUE", "Sets a key with the given value") do |pair|
+          arguments[:command] = :set_set
+          arguments[:key], arguments[:value] = pair.split(":")
+        end
+
         opts.on("--force", "Doesn't ask for confirmation") do
           arguments[:force] = true
         end
