@@ -8,7 +8,7 @@ module Shashi
     end
 
     def self.write_database(file:, data:)
-      File.write(path, JSON.pretty_generate(data))
+      File.write(file, JSON.pretty_generate(data))
     end
 
   end
