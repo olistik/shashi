@@ -30,7 +30,12 @@ module Shashi
       private
 
         def self.update_data(file:, data:, data_reference:, key:, value:)
-          data_reference[key] = value
+          data_reference[key] = if value
+            value
+          else
+            print "[#{key}] = "
+            gets.strip
+          end
           Utils.write_database(file: file, data: data)
         end
 
