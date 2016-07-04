@@ -1,5 +1,3 @@
-require "fileutils"
-require "json"
 require_relative "command/setup"
 
 module Shashi

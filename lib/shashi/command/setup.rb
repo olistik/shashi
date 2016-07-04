@@ -1,3 +1,5 @@
+require "fileutils"
+
 module Shashi
   module Command
     module Setup
