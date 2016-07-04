@@ -7,7 +7,8 @@ module Shashi
       arguments = {
         file: "./shashi__db.json",
         path: [],
-        force: false
+        force: false,
+        echo: true
       }
 
       opt_parser = OptionParser.new do |opts|
@@ -33,6 +34,10 @@ module Shashi
         opts.on("--set KEY:VALUE", "Sets a key with the given value") do |pair|
           arguments[:command] = :set_set
           arguments[:key], arguments[:value] = pair.split(":")
+        end
+
+        opts.on("--no-echo", "Doesn't echo values asked") do
+          arguments[:echo] = false
         end
 
         opts.on("--force", "Doesn't ask for confirmation") do

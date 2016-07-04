@@ -22,7 +22,8 @@ module Shashi
           path: arguments[:path],
           key: arguments[:key],
           value: arguments[:value],
-          force: arguments[:force]
+          force: arguments[:force],
+          echo: arguments[:echo]
         )
       else
         puts "Command `#{arguments[:command]}` is not recognized."

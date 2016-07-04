@@ -29,18 +29,15 @@ shashi
     # --delete-group "NAME" # asks for confirmation if the group is not empty
     #   --force # doesn't ask for confirmation if the group is not empty
 
+    --no-echo # when prompted for a value, doesn't show it while typing
+    --force # doesn't ask for confirmations
+
     --create-set "NAME" # creates an empty set, asks for confirmation if the key NAME already exists
-      --force # doesn't ask for confirmation if the key NAME already exists
     --set "KEY:VALUE" # asks for confirmation if the key NAME already exists
-      --force # doesn't ask for confirmation if the key NAME already exists
     --set "KEY" # prompt for value, asks for confirmation if the key NAME already exists
-      --force # doesn't ask for confirmation if the key NAME already exists
-    --secure-set "KEY" # prompt for value but doesn't echo the entered value, asks for confirmation if the key NAME already exists
-      --force # doesn't ask for confirmation if the key NAME already exists
     --show "List<KEY>[separator:,]" # shows the values associated with keys but not the content of sets/lists
       --deep # shows the values associated with keys AND the content of sets/lists
     --delete-set "NAME" # asks for confirmation if the set is not empty
-      --force # doesn't ask for confirmation if the set is not empty
 
     --create-list "NAME"
     --index "INDEX" # default the size of the queue

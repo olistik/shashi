@@ -1,19 +1,21 @@
+require "io/console"
+
 module Shashi
   module Command
     module SetSet
 
-      def self.perform(file:, path:, key:, value:, force:)
+      def self.perform(file:, path:, key:, value:, force:, echo:)
         data = Utils.read_database(file: file)
         data_reference = Utils.data_walker(data: data, path: path)
         if data_reference.has_key?(key)
           if force
-            update_data(file: file, data: data, data_reference: data_reference, key: key, value: value)
+            update_data(file: file, data: data, data_reference: data_reference, key: key, value: value, echo: echo)
           else
             print "The key #{key} already exists at #{path.join(".")}, overwrite? [y/N] "
             choice = gets
             case choice.strip
             when "y"
-              update_data(file: file, data: data, data_reference: data_reference, key: key, value: value)
+              update_data(file: file, data: data, data_reference: data_reference, key: key, value: value, echo: echo)
             when ""
               # do nothing
             when "N"
@@ -23,18 +25,22 @@ module Shashi
             end
           end
         else
-          update_data(file: file, data: data, data_reference: data_reference, key: key, value: value)
+          update_data(file: file, data: data, data_reference: data_reference, key: key, value: value, echo: echo)
         end
       end
 
       private
 
-        def self.update_data(file:, data:, data_reference:, key:, value:)
+        def self.update_data(file:, data:, data_reference:, key:, value:, echo:)
           data_reference[key] = if value
             value
           else
             print "[#{key}] = "
-            gets.strip
+            if echo
+              gets.strip
+            else
+              STDIN.noecho(&:gets).strip
+            end
           end
           Utils.write_database(file: file, data: data)
         end
