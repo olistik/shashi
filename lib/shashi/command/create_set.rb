@@ -4,7 +4,7 @@ module Shashi
 
       def self.perform(file:, path:, set_name:, force:)
         data = Utils.read_database(file: file)
-        data_reference = traverse_by_path(data: data, path: path)
+        data_reference = Utils.data_walker(data: data, path: path)
         if data_reference.has_key?(set_name)
           if force
             update_data(file: file, data: data, data_reference: data_reference, set_name: set_name)
@@ -32,14 +32,6 @@ module Shashi
         def self.update_data(file:, data:, data_reference:, set_name:)
           data_reference[set_name] = {}
           Utils.write_database(file: file, data: data)
-        end
-
-        def self.traverse_by_path(data:, path:)
-          current = data
-          path.each do |key|
-            current = current[key]
-          end
-          current
         end
 
     end
