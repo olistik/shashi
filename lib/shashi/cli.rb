@@ -7,6 +7,7 @@ module Shashi
       arguments = {
         file: "./shashi__db.json",
         path: [],
+        force: false
       }
 
       opt_parser = OptionParser.new do |opts|
@@ -18,6 +19,19 @@ module Shashi
 
         opts.on("--file FILE", "Choose the storage file") do |file|
           arguments[:file] = file
+        end
+
+        opts.on("--path PATH", "PATH := List<KEY>[separator:.], applies a partial matching but raise an error in case of more than one match") do |path|
+          arguments[:path] = path.split(".")
+        end
+
+        opts.on("--create-set NAME", "Creates an empty set") do |name|
+          arguments[:command] = :create_set
+          arguments[:set_name] = name
+        end
+
+        opts.on("--force", "Doesn't ask for confirmation") do
+          arguments[:force] = true
         end
 
         opts.on("-h", "--help", "Prints this help") do

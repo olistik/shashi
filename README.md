@@ -23,16 +23,20 @@ gem install shashi
 shashi
   --file "FILE" # defaults to ./shashi__db.json
   --setup # creates the storage file with an empty set
-  --path "List<PATH>[separator:.]" # applies a partial matching but raise an error in case of more than one match
+  --path "List<KEY>[separator:.]" # applies a partial matching but raise an error in case of more than one match
     # --group "NAME" # defaults to `default`
     # --create-group "NAME"
     # --delete-group "NAME" # asks for confirmation if the group is not empty
     #   --force # doesn't ask for confirmation if the group is not empty
 
-    --create-set "NAME"
-    --set "KEY:VALUE"
-    --set "KEY" # prompt for value
-    --secure-set "KEY" # prompt for value but doesn't echo the entered value
+    --create-set "NAME" # creates an empty set, asks for confirmation if the key NAME already exists
+      --force # doesn't ask for confirmation if the key NAME already exists
+    --set "KEY:VALUE" # asks for confirmation if the key NAME already exists
+      --force # doesn't ask for confirmation if the key NAME already exists
+    --set "KEY" # prompt for value, asks for confirmation if the key NAME already exists
+      --force # doesn't ask for confirmation if the key NAME already exists
+    --secure-set "KEY" # prompt for value but doesn't echo the entered value, asks for confirmation if the key NAME already exists
+      --force # doesn't ask for confirmation if the key NAME already exists
     --show "List<KEY>[separator:,]" # shows the values associated with keys but not the content of sets/lists
       --deep # shows the values associated with keys AND the content of sets/lists
     --delete-set "NAME" # asks for confirmation if the set is not empty
