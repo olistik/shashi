@@ -23,5 +23,17 @@ module Shashi
       current
     end
 
+    module Data
+
+      def self.is_list?(value)
+        value.is_a?(Array)
+      end
+
+      def self.is_set?(value)
+        value.is_a?(Hash)
+      end
+
+    end
+
   end
 end

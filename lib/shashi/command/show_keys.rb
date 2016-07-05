@@ -11,14 +11,14 @@ module Shashi
           if data_reference.has_key?(key)
             value = data_reference[key]
             print "#{key}: "
-            if is_list?(value)
+            if Utils::Data.is_list?(value)
               if deep
                 pp value
               else
                 puts ""
                 puts "#List#"
               end
-            elsif is_set?(value)
+            elsif Utils::Data.is_set?(value)
               if deep
                 puts ""
                 pp value
@@ -33,16 +33,6 @@ module Shashi
           end
         end
       end
-
-      private
-
-        def self.is_list?(value)
-          value.is_a?(Array)
-        end
-
-        def self.is_set?(value)
-          value.is_a?(Hash)
-        end
 
     end
   end

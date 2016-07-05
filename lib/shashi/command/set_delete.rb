@@ -12,11 +12,11 @@ module Shashi
             update_data(file: file, data: data, data_reference: data_reference, key: key)
           else
             value = data_reference[key]
-            if is_list?(value)
+            if Utils::Data.is_list?(value)
               if confirms_deletion?(key: key, path: path, value_type: "#List#")
                 update_data(file: file, data: data, data_reference: data_reference, key: key)
               end
-            elsif is_set?(value)
+            elsif Utils::Data.is_set?(value)
               if confirms_deletion?(key: key, path: path, value_type: "#Set#")
                 update_data(file: file, data: data, data_reference: data_reference, key: key)
               end
@@ -54,13 +54,6 @@ module Shashi
           Utils.write_database(file: file, data: data)
         end
 
-        def self.is_list?(value)
-          value.is_a?(Array)
-        end
-
-        def self.is_set?(value)
-          value.is_a?(Hash)
-        end
     end
   end
 end
