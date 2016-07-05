@@ -19,15 +19,15 @@ module Shashi
 
     end
 
-    def self.data_walker(data:, path:)
-      current = data
-      path.each do |key|
-        current = current[key]
-      end
-      current
-    end
-
     module Data
+
+      def self.walk(data:, path:)
+        current = data
+        path.each do |key|
+          current = current[key]
+        end
+        current
+      end
 
       def self.is_list?(value)
         value.is_a?(Array)

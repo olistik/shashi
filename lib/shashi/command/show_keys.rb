@@ -6,7 +6,7 @@ module Shashi
 
       def self.perform(file:, path:, keys:, deep:)
         data = Utils::Database.read_database(file: file)
-        data_reference = Utils.data_walker(data: data, path: path)
+        data_reference = Utils::Data.walk(data: data, path: path)
         keys.each do |key|
           if data_reference.has_key?(key)
             value = data_reference[key]

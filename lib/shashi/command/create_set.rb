@@ -4,7 +4,7 @@ module Shashi
 
       def self.perform(file:, path:, set_name:, force:)
         data = Utils::Database.read_database(file: file)
-        data_reference = Utils.data_walker(data: data, path: path)
+        data_reference = Utils::Data.walk(data: data, path: path)
         if data_reference.has_key?(set_name)
           if force
             update_data(file: file, data: data, data_reference: data_reference, set_name: set_name)
