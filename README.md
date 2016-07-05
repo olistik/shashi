@@ -51,7 +51,7 @@ shashi
 
 ## TODO
 
-- [ ] Implements `--delete`.
+- [X] Implements `--delete`.
 - [ ] Implements `--create-list`.
 - [ ] Implements `--list-push` with `--index` and `--no-echo`.
 - [ ] Implements `--list-show` with `--index`.
