@@ -2,6 +2,7 @@ require_relative "command/setup"
 require_relative "command/create_set"
 require_relative "command/set_set"
 require_relative "command/show_keys"
+require_relative "command/set_delete"
 
 module Shashi
   module Command
@@ -32,6 +33,13 @@ module Shashi
           path: arguments[:path],
           keys: arguments[:keys],
           deep: arguments[:deep],
+        )
+      when :delete
+        SetDelete.perform(
+          file: arguments[:file],
+          path: arguments[:path],
+          key: arguments[:key],
+          force: arguments[:force],
         )
       else
         puts "Command `#{arguments[:command]}` is not recognized."

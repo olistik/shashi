@@ -42,6 +42,11 @@ module Shashi
           arguments[:keys] = keys.split(",")
         end
 
+        opts.on("--delete KEY", "Deletes the item. Asks for confirmation if it's a non-empty set or list.") do |key|
+          arguments[:command] = :delete
+          arguments[:key] = key
+        end
+
         opts.on("--deep", "Shows the values associated with KEYS (recursively) even if they contain sets or lists.") do
           arguments[:deep] = true
         end
