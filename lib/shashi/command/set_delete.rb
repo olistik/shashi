@@ -5,7 +5,7 @@ module Shashi
     module SetDelete
 
       def self.perform(file:, path:, key:, force:)
-        data = Utils.read_database(file: file)
+        data = Utils::Database.read_database(file: file)
         data_reference = Utils.data_walker(data: data, path: path)
         if data_reference.has_key?(key)
           if force
@@ -51,7 +51,7 @@ module Shashi
 
         def self.update_data(file:, data:, data_reference:, key:)
           data_reference.delete(key)
-          Utils.write_database(file: file, data: data)
+          Utils::Database.write_database(file: file, data: data)
         end
 
     end

@@ -5,7 +5,7 @@ module Shashi
     module ShowKeys
 
       def self.perform(file:, path:, keys:, deep:)
-        data = Utils.read_database(file: file)
+        data = Utils::Database.read_database(file: file)
         data_reference = Utils.data_walker(data: data, path: path)
         keys.each do |key|
           if data_reference.has_key?(key)

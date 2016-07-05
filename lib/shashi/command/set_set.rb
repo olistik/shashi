@@ -5,7 +5,7 @@ module Shashi
     module SetSet
 
       def self.perform(file:, path:, key:, value:, force:, echo:)
-        data = Utils.read_database(file: file)
+        data = Utils::Database.read_database(file: file)
         data_reference = Utils.data_walker(data: data, path: path)
         if data_reference.has_key?(key)
           if force
@@ -42,7 +42,7 @@ module Shashi
               STDIN.noecho(&:gets).strip
             end
           end
-          Utils.write_database(file: file, data: data)
+          Utils::Database.write_database(file: file, data: data)
         end
 
     end

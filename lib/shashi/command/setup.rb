@@ -6,7 +6,7 @@ module Shashi
 
       def self.perform(file:)
         prepare_directory(file: file)
-        Utils.write_database(file: file, data: {})
+        Utils::Database.write_database(file: file, data: {})
       end
 
       private
