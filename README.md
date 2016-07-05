@@ -21,35 +21,44 @@ gem install shashi
 
 ```bash
 shashi
-  --file "FILE" # defaults to ./shashi__db.json
-  --setup # creates the storage file with an empty set
-  --path "List<KEY>[separator:.]" # applies a partial matching but raise an error in case of more than one match
-    # --group "NAME" # defaults to `default`
-    # --create-group "NAME"
-    # --delete-group "NAME" # asks for confirmation if the group is not empty
-    #   --force # doesn't ask for confirmation if the group is not empty
 
-    --no-echo # when prompted for a value, doesn't show it while typing
-    --force # doesn't ask for confirmations
+  --file "FILE" # Uses FILE as the desired file path for the storage. Defaults to `./shashi__db.json`.
+  --setup # Creates the storage file with an empty set.
+  --path "PATH" # `PATH := List<KEY>[separator:.]`. Address the document's item by chaining a list of keys. For example: `key1.key2.key3`.
 
-    --create-set "NAME" # creates an empty set, asks for confirmation if the key NAME already exists
-    --set "KEY:VALUE" # asks for confirmation if the key NAME already exists
-    --set "KEY" # prompt for value, asks for confirmation if the key NAME already exists
-    --show "List<KEY>[separator:,]" # shows the values associated with keys but not the content of sets/lists
-      --deep # shows the values associated with keys AND the content of sets/lists
-    --delete-set "NAME" # asks for confirmation if the set is not empty
+  # Common options
 
-    --create-list "NAME"
-    --index "INDEX" # default the size of the queue
-    --push "List<VALUE>[separator:,]"
-    --secure-push # prompts for values but doesn't echo the entered values
-    --delete # asks for confirmation
-      --force # doesn't ask for confirmation
+  --no-echo # When prompted for a value, doesn't show it while typing.
+  --force # Doesn't ask for confirmation.
+
+  # Set commands
+
+  --create-set "NAME" # Creates an empty set. Asks for confirmation if the key NAME already exists.
+  --set "KEY:VALUE" # Sets the KEY to VALUE. Asks for confirmation if the key NAME already exists.
+  --set "KEY" # Prompts for a value and sets KEY accordingly. Asks for confirmation if the key NAME already exists.
+  --show "KEYS" # `KEYS := List<KEY>[separator:,]`. Shows the values associated with keys but not the content of sets/lists. For example: `name,e-mail`.
+    --deep # Shows the values associated with KEYS (recursively) even if they contain sets or lists.
+  --delete "KEY" # Deletes the item. Asks for confirmation if it's a non-empty set or list.
+
+  # List commands
+
+  --create-list # Creates a list.
+  --index "INDEX" # `INDEX := (Integer >= 0)`. References the n-th element of a list. Defaults to the size of the list (ie: the last element).
+    --list-push "VALUES" # `VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.
+    --list-show # Shows the n-th element of a list.
+    --list-delete # Deletes the n-th element of a list.
 ```
 
 ## TODO
 
-1. Persist and modify default values
+- [ ] Implements `--delete`.
+- [ ] Implements `--create-list`.
+- [ ] Implements `--list-push` with `--index` and `--no-echo`.
+- [ ] Implements `--list-show` with `--index`.
+- [ ] Implements `--list-delete` with `--index`.
+- [ ] Persist and modify default values.
+- [ ] Applies a partial matching when specifying `--path` and raise an error in case of more than one match.
+- [ ] Allows the nesting of sets within lists (this should require an update in the way we handle the item's PATH).
 
 ## Development
 

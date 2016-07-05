@@ -15,24 +15,24 @@ module Shashi
       opt_parser = OptionParser.new do |opts|
         opts.banner = "Usage: shashi [options]"
 
-        opts.on("--setup", "Creates the storage file with an empty set") do
+        opts.on("--setup", "Creates the storage file with an empty set.") do
           arguments[:command] = :setup
         end
 
-        opts.on("--file FILE", "Choose the storage file") do |file|
+        opts.on("--file FILE", "Uses FILE as the desired file path for the storage. Defaults to `./shashi__db.json`.") do |file|
           arguments[:file] = file
         end
 
-        opts.on("--path PATH", "PATH := List<KEY>[separator:.], applies a partial matching but raise an error in case of more than one match") do |path|
+        opts.on("--path PATH", "`PATH := List<KEY>[separator:.]`. Address the document's item by chaining a list of keys. For example: `key1.key2.key3`.") do |path|
           arguments[:path] = path.split(".")
         end
 
-        opts.on("--create-set NAME", "Creates an empty set") do |name|
+        opts.on("--create-set NAME", "Creates an empty set. Asks for confirmation if the key NAME already exists.") do |name|
           arguments[:command] = :create_set
           arguments[:set_name] = name
         end
 
-        opts.on("--set KEY:VALUE", "Sets a key with the given value") do |pair|
+        opts.on("--set KEY:VALUE", "Sets the KEY to VALUE. Asks for confirmation if the key NAME already exists. If no VALUE is given, prompts for it.") do |pair|
           arguments[:command] = :set_set
           arguments[:key], arguments[:value] = pair.split(":")
         end
@@ -50,7 +50,7 @@ module Shashi
           arguments[:echo] = false
         end
 
-        opts.on("--force", "Doesn't ask for confirmation") do
+        opts.on("--force", "Doesn't ask for confirmation.") do
           arguments[:force] = true
         end
 
