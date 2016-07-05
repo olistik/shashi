@@ -8,7 +8,8 @@ module Shashi
         file: "./shashi__db.json",
         path: [],
         force: false,
-        echo: true
+        echo: true,
+        deep: false,
       }
 
       opt_parser = OptionParser.new do |opts|
@@ -36,7 +37,16 @@ module Shashi
           arguments[:key], arguments[:value] = pair.split(":")
         end
 
-        opts.on("--no-echo", "Doesn't echo values asked") do
+        opts.on("--show KEYS", "`KEYS := List<KEY>[separator:,]`. Shows the values associated with keys but not the content of sets/lists. For example: `name,e-mail`.") do |keys|
+          arguments[:command] = :show_keys
+          arguments[:keys] = keys.split(",")
+        end
+
+        opts.on("--deep", "Shows the values associated with KEYS (recursively) even if they contain sets or lists.") do
+          arguments[:deep] = true
+        end
+
+        opts.on("--no-echo", "When prompted for a value, doesn't show it while typing.") do
           arguments[:echo] = false
         end
 

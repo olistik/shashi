@@ -1,6 +1,7 @@
 require_relative "command/setup"
 require_relative "command/create_set"
 require_relative "command/set_set"
+require_relative "command/show_keys"
 
 module Shashi
   module Command
@@ -24,6 +25,13 @@ module Shashi
           value: arguments[:value],
           force: arguments[:force],
           echo: arguments[:echo]
+        )
+      when :show_keys
+        ShowKeys.perform(
+          file: arguments[:file],
+          path: arguments[:path],
+          keys: arguments[:keys],
+          deep: arguments[:deep],
         )
       else
         puts "Command `#{arguments[:command]}` is not recognized."
