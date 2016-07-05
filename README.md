@@ -51,14 +51,14 @@ shashi
 
 ## TODO
 
-- [X] Implements `--delete`.
-- [ ] Implements `--create-list`.
-- [ ] Implements `--list-push` with `--index` and `--no-echo`.
-- [ ] Implements `--list-show` with `--index`.
-- [ ] Implements `--list-delete` with `--index`.
+- [X] Implement `--delete`.
+- [ ] Implement `--create-list`.
+- [ ] Implement `--list-push` with `--index` and `--no-echo`.
+- [ ] Implement `--list-show` with `--index`.
+- [ ] Implement `--list-delete` with `--index`.
 - [ ] Persist and modify default values.
-- [ ] Applies a partial matching when specifying `--path` and raise an error in case of more than one match.
-- [ ] Allows the nesting of sets within lists (this should require an update in the way we handle the item's PATH).
+- [ ] Apply a partial matching when specifying `--path` and raise an error in case of more than one match.
+- [ ] Allow the nesting of sets within lists (this should require an update in the way we handle the item's PATH).
 
 ## Development
 
