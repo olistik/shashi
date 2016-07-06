@@ -42,7 +42,7 @@ shashi
 
   # List commands
 
-  --create-list # Creates a list.
+  --create-list "NAME" # Creates an empty list. Asks for confirmation if the key NAME already exists.
   --index "INDEX" # `INDEX := (Integer >= 0)`. References the n-th element of a list. Defaults to the size of the list (ie: the last element).
     --list-push "VALUES" # `VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.
     --list-show # Shows the n-th element of a list.
@@ -52,7 +52,7 @@ shashi
 ## TODO
 
 - [X] Implement `--delete`.
-- [ ] Implement `--create-list`.
+- [X] Implement `--create-list`.
 - [ ] Implement `--list-push` with `--index` and `--no-echo`.
 - [ ] Implement `--list-show` with `--index`.
 - [ ] Implement `--list-delete` with `--index`.

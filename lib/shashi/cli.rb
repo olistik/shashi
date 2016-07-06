@@ -47,6 +47,11 @@ module Shashi
           arguments[:key] = key
         end
 
+        opts.on("--create-list NAME", "Creates an empty list. Asks for confirmation if the key NAME already exists.") do |name|
+          arguments[:command] = :create_list
+          arguments[:list_name] = name
+        end
+
         opts.on("--deep", "Shows the values associated with KEYS (recursively) even if they contain sets or lists.") do
           arguments[:deep] = true
         end

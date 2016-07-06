@@ -3,6 +3,7 @@ require_relative "command/create_set"
 require_relative "command/set_set"
 require_relative "command/show_keys"
 require_relative "command/set_delete"
+require_relative "command/create_list"
 
 module Shashi
   module Command
@@ -40,6 +41,13 @@ module Shashi
           path: arguments[:path],
           key: arguments[:key],
           force: arguments[:force],
+        )
+      when :create_list
+        CreateList.perform(
+          file: arguments[:file],
+          path: arguments[:path],
+          list_name: arguments[:list_name],
+          force: arguments[:force]
         )
       else
         puts "Command `#{arguments[:command]}` is not recognized."
