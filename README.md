@@ -53,7 +53,7 @@ shashi
 
 - [X] Implement `--delete`.
 - [X] Implement `--create-list`.
-- [ ] Implement `--list-push` with `--index`.
+- [X] Implement `--list-push` with `--index`.
 - [ ] Implement `--list-show` with `--index`.
 - [ ] Implement `--list-delete` with `--index`.
 - [ ] Persist and modify default values.
