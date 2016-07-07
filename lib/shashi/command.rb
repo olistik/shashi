@@ -4,6 +4,7 @@ require_relative "command/set_set"
 require_relative "command/show_keys"
 require_relative "command/set_delete"
 require_relative "command/create_list"
+require_relative "command/list_push"
 
 module Shashi
   module Command
@@ -48,6 +49,13 @@ module Shashi
           path: arguments[:path],
           list_name: arguments[:list_name],
           force: arguments[:force]
+        )
+      when :list_push
+        ListPush.perform(
+          file: arguments[:file],
+          path: arguments[:path],
+          values: arguments[:values],
+          index: arguments[:index]
         )
       else
         puts "Command `#{arguments[:command]}` is not recognized."

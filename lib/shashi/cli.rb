@@ -10,6 +10,7 @@ module Shashi
         force: false,
         echo: true,
         deep: false,
+        index: nil,
       }
 
       opt_parser = OptionParser.new do |opts|
@@ -50,6 +51,15 @@ module Shashi
         opts.on("--create-list NAME", "Creates an empty list. Asks for confirmation if the key NAME already exists.") do |name|
           arguments[:command] = :create_list
           arguments[:list_name] = name
+        end
+
+        opts.on("--index INDEX", Integer, "`INDEX := (Integer >= 0)`. References the n-th element of a list. Defaults to the size of the list (ie: the last element).") do |index|
+          arguments[:index] = index
+        end
+
+        opts.on("--list-push VALUES", "`VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.") do |values|
+          arguments[:command] = :list_push
+          arguments[:values] = values.split(",")
         end
 
         opts.on("--deep", "Shows the values associated with KEYS (recursively) even if they contain sets or lists.") do
