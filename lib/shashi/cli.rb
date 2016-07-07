@@ -87,6 +87,12 @@ module Shashi
         exit 1
       end
 
+      if arguments[:index] && arguments[:index] < 0
+        puts "`INDEX` must be greater than or equal to 0."
+        puts opt_parser
+        exit 1
+      end
+
       arguments[:file] = File.expand_path(arguments[:file])
 
       Command.perform(arguments: arguments)
