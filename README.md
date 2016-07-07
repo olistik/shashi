@@ -30,6 +30,7 @@ shashi
 
   --no-echo # When prompted for a value, doesn't show it while typing.
   --force # Doesn't ask for confirmation.
+  --delete "KEY" # Deletes the item. Asks for confirmation if it's a non-empty set or list.
 
   # Set commands
 
@@ -38,7 +39,6 @@ shashi
   --set "KEY" # Prompts for a value and sets KEY accordingly. Asks for confirmation if the key NAME already exists.
   --show "KEYS" # `KEYS := List<KEY>[separator:,]`. Shows the values associated with keys but not the content of sets/lists. For example: `name,e-mail`.
     --deep # Shows the values associated with KEYS (recursively) even if they contain sets or lists.
-  --delete "KEY" # Deletes the item. Asks for confirmation if it's a non-empty set or list.
 
   # List commands
 
