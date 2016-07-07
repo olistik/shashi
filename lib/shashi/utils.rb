@@ -24,7 +24,12 @@ module Shashi
       def self.walk(data:, path:)
         current = data
         path.each do |key|
-          current = current[key]
+          if current.has_key?(key)
+            current = current[key]
+          else
+            puts "Path #{path.join(".")} is not valid."
+            exit 1
+          end
         end
         current
       end
