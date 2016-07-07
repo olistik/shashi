@@ -5,6 +5,7 @@ require_relative "command/show_keys"
 require_relative "command/set_delete"
 require_relative "command/create_list"
 require_relative "command/list_push"
+require_relative "command/list_show"
 
 module Shashi
   module Command
@@ -56,6 +57,13 @@ module Shashi
           path: arguments[:path],
           values: arguments[:values],
           index: arguments[:index]
+        )
+      when :list_show
+        ListShow.perform(
+          file: arguments[:file],
+          path: arguments[:path],
+          index: arguments[:index],
+          count: arguments[:count]
         )
       else
         puts "Command `#{arguments[:command]}` is not recognized."

@@ -11,6 +11,7 @@ module Shashi
         echo: true,
         deep: false,
         index: nil,
+        count: 1,
       }
 
       opt_parser = OptionParser.new do |opts|
@@ -62,6 +63,14 @@ module Shashi
           arguments[:values] = values.split(",")
         end
 
+        opts.on("--list-show", "Shows `COUNT` elements of a list, starting from `INDEX`.") do
+          arguments[:command] = :list_show
+        end
+
+        opts.on("--count COUNT", Integer, "`COUNT := (Integer > 0), defaults to 1`.") do |count|
+          arguments[:count] = count
+        end
+
         opts.on("--deep", "Shows the values associated with KEYS (recursively) even if they contain sets or lists.") do
           arguments[:deep] = true
         end
@@ -89,6 +98,12 @@ module Shashi
 
       if arguments[:index] && arguments[:index] < 0
         puts "`INDEX` must be greater than or equal to 0."
+        puts opt_parser
+        exit 1
+      end
+
+      if arguments[:count] <= 0
+        puts "`COUNT` must be greater than 0."
         puts opt_parser
         exit 1
       end

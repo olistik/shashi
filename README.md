@@ -45,8 +45,9 @@ shashi
   --create-list "NAME" # Creates an empty list. Asks for confirmation if the key NAME already exists.
   --index "INDEX" # `INDEX := (Integer >= 0)`. References the n-th element of a list. Defaults to the size of the list (ie: the last element).
     --list-push "VALUES" # `VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.
-    --list-show # Shows the n-th element of a list.
+    --list-show # Shows `COUNT` elements of a list, starting from `INDEX`.
     --list-delete # Deletes the n-th element of a list.
+    --count # `COUNT := (Integer >= 0), defaults to 1`.
 ```
 
 ## TODO
@@ -54,7 +55,7 @@ shashi
 - [X] Implement `--delete`.
 - [X] Implement `--create-list`.
 - [X] Implement `--list-push` with `--index`.
-- [ ] Implement `--list-show` with `--index`.
+- [X] Implement `--list-show` with `--index` and `--count`.
 - [ ] Implement `--list-delete` with `--index`.
 - [ ] Persist and modify default values.
 - [ ] Apply a partial matching when specifying `--path` and raise an error in case of more than one match.
