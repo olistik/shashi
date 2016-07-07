@@ -1,5 +1,3 @@
-require "io/console"
-
 module Shashi
   module Command
     module SetDelete
