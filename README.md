@@ -47,7 +47,7 @@ shashi
   --count # `COUNT := (Integer >= 0), defaults to 1`.
     --list-push "VALUES" # `VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.
     --list-show # Shows `COUNT` elements of a list, starting from `INDEX`.
-    --list-delete # Deletes the n-th element of a list.
+    --list-delete # Deletes `COUNT` elements from a list, starting from `INDEX`.
 ```
 
 ## TODO
@@ -56,7 +56,7 @@ shashi
 - [X] Implement `--create-list`.
 - [X] Implement `--list-push` with `--index`.
 - [X] Implement `--list-show` with `--index` and `--count`.
-- [ ] Implement `--list-delete` with `--index`.
+- [X] Implement `--list-delete` with `--index` and `--count`.
 - [ ] Persist and modify default values.
 - [ ] Apply a partial matching when specifying `--path` and raise an error in case of more than one match.
 - [ ] Allow the nesting of sets within lists (this should require an update in the way we handle the item's PATH).

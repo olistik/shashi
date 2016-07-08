@@ -71,6 +71,8 @@ module Shashi
           arguments[:command] = :list_show
         end
 
+        opts.on("--list-delete", "Deletes `COUNT` elements from a list, starting from `INDEX`.") do
+          arguments[:command] = :list_delete
         end
 
         opts.on("--deep", "Shows the values associated with KEYS (recursively) even if they contain sets or lists.") do

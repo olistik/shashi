@@ -6,6 +6,7 @@ require_relative "command/set_delete"
 require_relative "command/create_list"
 require_relative "command/list_push"
 require_relative "command/list_show"
+require_relative "command/list_delete"
 
 module Shashi
   module Command
@@ -60,6 +61,13 @@ module Shashi
         )
       when :list_show
         ListShow.perform(
+          file: arguments[:file],
+          path: arguments[:path],
+          index: arguments[:index],
+          count: arguments[:count]
+        )
+      when :list_delete
+        ListDelete.perform(
           file: arguments[:file],
           path: arguments[:path],
           index: arguments[:index],
