@@ -44,10 +44,10 @@ shashi
 
   --create-list "NAME" # Creates an empty list. Asks for confirmation if the key NAME already exists.
   --index "INDEX" # `INDEX := (Integer >= 0)`. References the n-th element of a list. Defaults to the size of the list (ie: the last element).
+  --count # `COUNT := (Integer >= 0), defaults to 1`.
     --list-push "VALUES" # `VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.
     --list-show # Shows `COUNT` elements of a list, starting from `INDEX`.
     --list-delete # Deletes the n-th element of a list.
-    --count # `COUNT := (Integer >= 0), defaults to 1`.
 ```
 
 ## TODO

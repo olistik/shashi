@@ -58,6 +58,10 @@ module Shashi
           arguments[:index] = index
         end
 
+        opts.on("--count COUNT", Integer, "`COUNT := (Integer > 0), defaults to 1`.") do |count|
+          arguments[:count] = count
+        end
+
         opts.on("--list-push VALUES", "`VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.") do |values|
           arguments[:command] = :list_push
           arguments[:values] = values.split(",")
@@ -67,8 +71,6 @@ module Shashi
           arguments[:command] = :list_show
         end
 
-        opts.on("--count COUNT", Integer, "`COUNT := (Integer > 0), defaults to 1`.") do |count|
-          arguments[:count] = count
         end
 
         opts.on("--deep", "Shows the values associated with KEYS (recursively) even if they contain sets or lists.") do
