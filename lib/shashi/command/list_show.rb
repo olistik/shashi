@@ -11,8 +11,8 @@ module Shashi
               puts "The index `#{index}` is too high, the highest possible index for this list is currently `#{data_reference.count - 1}`."
               exit 1
             end
-            if data_reference.count <= index + count
-              puts "Starting from index `#{index}` you can access to a maximum of `#{data_reference.count - index - count + 1}`."
+            if data_reference.count < index + count
+              puts "Starting from index `#{index}` you can access to a maximum of `#{data_reference.count - index}`."
               exit 1
             end
           else
