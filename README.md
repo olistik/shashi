@@ -52,11 +52,6 @@ shashi
 
 ## TODO
 
-- [X] Implement `--delete`.
-- [X] Implement `--create-list`.
-- [X] Implement `--list-push` with `--index`.
-- [X] Implement `--list-show` with `--index` and `--count`.
-- [X] Implement `--list-delete` with `--index` and `--count`.
 - [ ] Persist and modify default values.
 - [ ] Apply a partial matching when specifying `--path` and raise an error in case of more than one match.
 - [ ] Allow the nesting of sets within lists (this should require an update in the way we handle the item's PATH).
