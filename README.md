@@ -37,6 +37,7 @@ shashi
   --create-set "NAME" # Creates an empty set. Asks for confirmation if the key NAME already exists.
   --set "KEY:VALUE" # Sets the KEY to VALUE. Asks for confirmation if the key NAME already exists.
   --set "KEY" # Prompts for a value and sets KEY accordingly. Asks for confirmation if the key NAME already exists.
+  --list-keys # Shows the keys contained in a set.
   --show "KEYS" # `KEYS := List<KEY>[separator:,]`. Shows the values associated with keys but not the content of sets/lists. For example: `name,e-mail`.
     --deep # Shows the values associated with KEYS (recursively) even if they contain sets or lists.
 

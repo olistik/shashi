@@ -39,6 +39,10 @@ module Shashi
           arguments[:key], arguments[:value] = pair.split(":")
         end
 
+        opts.on("--list-keys", "Shows the keys contained in a set.") do
+          arguments[:command] = :list_keys
+        end
+
         opts.on("--show KEYS", "`KEYS := List<KEY>[separator:,]`. Shows the values associated with keys but not the content of sets/lists. For example: `name,e-mail`.") do |keys|
           arguments[:command] = :show_keys
           arguments[:keys] = keys.split(",")

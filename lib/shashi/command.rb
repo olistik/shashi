@@ -1,6 +1,7 @@
 require_relative "command/setup"
 require_relative "command/create_set"
 require_relative "command/set_set"
+require_relative "command/list_keys"
 require_relative "command/show_keys"
 require_relative "command/set_delete"
 require_relative "command/create_list"
@@ -30,6 +31,11 @@ module Shashi
           value: arguments[:value],
           force: arguments[:force],
           echo: arguments[:echo]
+        )
+      when :list_keys
+        ListKeys.perform(
+          file: arguments[:file],
+          path: arguments[:path],
         )
       when :show_keys
         ShowKeys.perform(
