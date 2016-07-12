@@ -8,6 +8,7 @@ require_relative "command/create_list"
 require_relative "command/list_push"
 require_relative "command/list_show"
 require_relative "command/list_delete"
+require_relative "command/query"
 
 module Shashi
   module Command
@@ -78,6 +79,11 @@ module Shashi
           path: arguments[:path],
           index: arguments[:index],
           count: arguments[:count]
+        )
+      when :query
+        Query.perform(
+          file: arguments[:file],
+          query: arguments[:query]
         )
       else
         puts "Command `#{arguments[:command]}` is not recognized."

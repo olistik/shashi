@@ -91,6 +91,11 @@ module Shashi
           arguments[:force] = true
         end
 
+        opts.on("--query QUERY", "-q QUERY", "Queries the database with the given query.") do |query|
+          arguments[:command] = :query
+          arguments[:query] = query
+        end
+
         opts.on("-h", "--help", "Prints this help") do
           puts opts
           exit

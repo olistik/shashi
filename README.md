@@ -49,6 +49,9 @@ shashi
     --list-push "VALUES" # `VALUES := List<VALUE>[separator:,]`. Push VALUES into a list.
     --list-show # Shows `COUNT` elements of a list, starting from `INDEX`.
     --list-delete # Deletes `COUNT` elements from a list, starting from `INDEX`.
+
+  --query QUERY # Queries the database with the given query.
+
 ```
 
 ## TODO
